@@ -1,0 +1,72 @@
+{
+  "experiment": {
+    "name": "domainnet_fedsvp",
+    "outdir": "outputs"
+  },
+  "seed": 42,
+  "parallel_mode": "ddp",
+  "multi_gpu": true,
+  "gpu_ids": [
+    3,
+    5,
+    6,
+    7
+  ],
+  "num_workers": 4,
+  "dataset": {
+    "name": "domainnet",
+    "root": "/home/dengyu/dataset",
+    "protocol": "loo",
+    "target_domain": "ALL",
+    "val_ratio": 0.1,
+    "image_size": 224,
+    "transforms": "clip"
+  },
+  "algorithm": {
+    "name": "fedsvp",
+    "rounds": 60,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "lambda_consistency": 0.5,
+    "use_gca": true,
+    "lambda_contrastive": 0.1,
+    "contrastive_tau": 0.15,
+    "prototype_max_batches": 192,
+    "tau": 0.2,
+    "prompt_mode": "msvp",
+    "server_agg": "sdwa",
+    "class_template": "a photo of a {}",
+    "anchor_templates": [
+      "a photo of a {}",
+      "a sketch of a {}",
+      "a painting of a {}",
+      "an infograph of a {}"
+    ],
+    "public": {
+      "root": "/home/dengyu/dataset/ProxyData/images",
+      "num_public": 1000,
+      "batch_size": 8
+    },
+    "log_every": 1,
+    "tqdm": true
+  },
+  "model": {
+    "backbone": "open_clip",
+    "open_clip": {
+      "name": "ViT-B-16",
+      "pretrained": "openai"
+    }
+  },
+  "_runtime": {
+    "ddp": {
+      "requested": true,
+      "enabled": true,
+      "rank": 0,
+      "world_size": 4,
+      "local_rank": 0,
+      "device_id": 3
+    }
+  }
+}

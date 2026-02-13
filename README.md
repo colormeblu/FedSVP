@@ -3,6 +3,7 @@
 FedSVP is a runnable Python project for the algorithm described in `毕业论文算法一.docx`:
 
 - **Fed-MSVP (client side)**: multi-scale visual prompts across ViT layers with adaptive gates (`alpha_l`, initialized to 0).
+- **Fed-GCA (training mechanism)**: global-local contrastive alignment with server-maintained class prototypes.
 - **Fed-SDWA (server side)**: semantic-distance weighted aggregation based on proxy-data semantic scores.
 
 The project keeps the same scaffold style as `fedcausal_prompt_project`:
@@ -41,9 +42,25 @@ python train.py --config configs/pacs_fedsvp.json \
   --set dataset.target_domain=ALL
 ```
 
+Multi-GPU (DDP):
+
+```bash
+torchrun --nproc_per_node=2 train.py --config configs/domainnet_fedsvp.json \
+  --set dataset.root=/path/to/data \
+  --set parallel_mode=ddp \
+  --set multi_gpu=true \
+  --set gpu_ids=[0,1]
+```
+
+Notes:
+- DDP requires `torchrun`; do not use plain `python train.py` for multi-GPU.
+- `multi_gpu=true` with empty `gpu_ids` uses all visible CUDA devices.
+- You can set explicit devices, e.g. `gpu_ids=[1,2,3]`, and then use `--nproc_per_node=3`.
+- Keep `device` unset (or set it to `cuda`) unless you need a specific single-GPU run.
+
 ## 3) Core Mapping to the Thesis
 
-### Fed-MSVP
+### Fed-MSVP (Module 1)
 
 - `src/fedsvp/models/fedsvp_clip.py`
 - `MultiScaleVisualPrompt`
@@ -52,9 +69,20 @@ python train.py --config configs/pacs_fedsvp.json \
   - Deep prompts: layers `9-11`
 - `alpha_l` gate per layer, initialized to `0`
 - local loss in `src/fedsvp/algorithms/fedsvp_train.py`:
-  - `L_local = CE + lambda_consistency * (1 - cosine(f_prompt, f_frozen))`
+  - `L_local = CE + lambda_consistency * (1 - cosine(f_prompt, f_frozen)) + lambda_contrastive * L_con`
 
-### Fed-SDWA
+### Fed-GCA (Module 2)
+
+- client uploads per-class local prototypes after local training
+- server aggregates global prototypes with class-count weighting
+- next communication round uses InfoNCE-style loss:
+  - `L_con = CE( sim(z, G) / contrastive_tau )`
+- implementation files:
+  - `src/fedsvp/algorithms/fedsvp_train.py`
+  - `src/fedsvp/algorithms/agg.py`
+  - `src/fedsvp/algorithms/runners.py`
+
+### Fed-SDWA (Module 3)
 
 - semantic anchor construction from class names and templates
 - proxy-data scoring per client:
@@ -87,6 +115,7 @@ Ablation grid (matching the thesis table logic):
 - `configs/grid_pacs_loo_ablation_fedsvp.json`
   - `standard_prompt_fedavg`
   - `msvp_only`
+  - `msvp_gca`
   - `sdwa_only`
   - `fedsvp_full`
 

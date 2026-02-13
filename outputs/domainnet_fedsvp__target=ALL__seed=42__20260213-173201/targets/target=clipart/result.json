@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "dataset": "domainnet",
+    "target_domain": "clipart",
+    "algorithm": "fedsvp",
+    "seed": 42,
+    "final_acc": NaN,
+    "final_acc_std": 0.0,
+    "seconds": 0.0,
+    "hp.dataset.name": "domainnet",
+    "hp.dataset.root": "/home/dengyu/dataset",
+    "hp.dataset.protocol": "loo",
+    "hp.dataset.target_domain": "clipart",
+    "hp.dataset.val_ratio": 0.1,
+    "hp.dataset.image_size": 224,
+    "hp.dataset.transforms": "clip",
+    "hp.algorithm.name": "fedsvp",
+    "hp.algorithm.rounds": 60,
+    "hp.algorithm.local_epochs": 1,
+    "hp.algorithm.batch_size": 128,
+    "hp.algorithm.lr": 0.0001,
+    "hp.algorithm.wd": 0.0001,
+    "hp.algorithm.lambda_consistency": 0.5,
+    "hp.algorithm.use_gca": true,
+    "hp.algorithm.lambda_contrastive": 0.1,
+    "hp.algorithm.contrastive_tau": 0.15,
+    "hp.algorithm.prototype_max_batches": 192,
+    "hp.algorithm.tau": 0.2,
+    "hp.algorithm.prompt_mode": "msvp",
+    "hp.algorithm.server_agg": "sdwa",
+    "hp.algorithm.class_template": "a photo of a {}",
+    "hp.algorithm.anchor_templates": [
+      "a photo of a {}",
+      "a sketch of a {}",
+      "a painting of a {}",
+      "an infograph of a {}"
+    ],
+    "hp.algorithm.public.root": "/home/dengyu/dataset/ProxyData/images",
+    "hp.algorithm.public.num_public": 1000,
+    "hp.algorithm.public.batch_size": 32,
+    "hp.algorithm.log_every": 1,
+    "hp.algorithm.tqdm": true
+  },
+  "raw": {
+    "history": {
+      "round": [],
+      "test_acc": [],
+      "test_loss": []
+    },
+    "final_acc": NaN
+  }
+}

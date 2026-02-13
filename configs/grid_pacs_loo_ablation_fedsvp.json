@@ -9,19 +9,28 @@
   "ablations": {
     "standard_prompt_fedavg": {
       "algorithm.prompt_mode": "input",
-      "algorithm.server_agg": "fedavg"
+      "algorithm.server_agg": "fedavg",
+      "algorithm.use_gca": false
     },
     "msvp_only": {
       "algorithm.prompt_mode": "msvp",
-      "algorithm.server_agg": "fedavg"
+      "algorithm.server_agg": "fedavg",
+      "algorithm.use_gca": false
+    },
+    "msvp_gca": {
+      "algorithm.prompt_mode": "msvp",
+      "algorithm.server_agg": "fedavg",
+      "algorithm.use_gca": true
     },
     "sdwa_only": {
       "algorithm.prompt_mode": "input",
-      "algorithm.server_agg": "sdwa"
+      "algorithm.server_agg": "sdwa",
+      "algorithm.use_gca": false
     },
     "fedsvp_full": {
       "algorithm.prompt_mode": "msvp",
-      "algorithm.server_agg": "sdwa"
+      "algorithm.server_agg": "sdwa",
+      "algorithm.use_gca": true
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "experiment": {
+    "name": "pacs_fedsvp",
+    "outdir": "outputs"
+  },
+  "seed": 42,
+  "num_workers": 1,
+  "dataset": {
+    "name": "pacs",
+    "root": "/home/dengyu/dataset",
+    "protocol": "loo",
+    "target_domain": "ALL",
+    "val_ratio": 0.1,
+    "image_size": 224,
+    "transforms": "clip"
+  },
+  "algorithm": {
+    "name": "fedsvp",
+    "rounds": 50,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "lambda_consistency": 0.5,
+    "use_gca": true,
+    "lambda_contrastive": 0.25,
+    "contrastive_tau": 0.07,
+    "prototype_max_batches": -1,
+    "tau": 0.2,
+    "prompt_mode": "msvp",
+    "server_agg": "sdwa",
+    "class_template": "a photo of a {}",
+    "anchor_templates": [
+      "a photo of a {}",
+      "a sketch of a {}",
+      "a cartoon of a {}",
+      "an art painting of a {}"
+    ],
+    "public": {
+      "root": "/home/dengyu/dataset/ProxyData/images",
+      "num_public": 1000,
+      "batch_size": 32
+    },
+    "log_every": 1,
+    "tqdm": true
+  },
+  "model": {
+    "backbone": "open_clip",
+    "open_clip": {
+      "name": "ViT-B-16",
+      "pretrained": "openai"
+    }
+  }
+}

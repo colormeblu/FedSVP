@@ -1,0 +1,166 @@
+{
+  "protocol": "loo",
+  "seed": 42,
+  "target_domain": "cartoon",
+  "known_domains": [
+    "art",
+    "cartoon",
+    "photo",
+    "sketch"
+  ],
+  "num_classes": 7,
+  "class_names": [
+    "dog",
+    "elephant",
+    "giraffe",
+    "guitar",
+    "horse",
+    "house",
+    "person"
+  ],
+  "clients": {
+    "art": {
+      "n_train": 1843,
+      "n_val": 205,
+      "label_hist_train": {
+        "0": 342,
+        "1": 233,
+        "2": 254,
+        "3": 166,
+        "4": 185,
+        "5": 261,
+        "6": 402
+      },
+      "label_hist_train_named": {
+        "dog": 342,
+        "elephant": 233,
+        "giraffe": 254,
+        "guitar": 166,
+        "horse": 185,
+        "house": 261,
+        "person": 402
+      },
+      "label_hist_val": {
+        "0": 37,
+        "1": 22,
+        "2": 31,
+        "3": 18,
+        "4": 16,
+        "5": 34,
+        "6": 47
+      },
+      "label_hist_val_named": {
+        "dog": 37,
+        "elephant": 22,
+        "giraffe": 31,
+        "guitar": 18,
+        "horse": 16,
+        "house": 34,
+        "person": 47
+      },
+      "domain_hist_train": {
+        "art": 1843
+      },
+      "domain_frac_train": {
+        "art": 1.0
+      }
+    },
+    "photo": {
+      "n_train": 1503,
+      "n_val": 167,
+      "label_hist_train": {
+        "0": 170,
+        "1": 190,
+        "2": 164,
+        "3": 170,
+        "4": 178,
+        "5": 247,
+        "6": 384
+      },
+      "label_hist_train_named": {
+        "dog": 170,
+        "elephant": 190,
+        "giraffe": 164,
+        "guitar": 170,
+        "horse": 178,
+        "house": 247,
+        "person": 384
+      },
+      "label_hist_val": {
+        "0": 19,
+        "1": 12,
+        "2": 18,
+        "3": 16,
+        "4": 21,
+        "5": 33,
+        "6": 48
+      },
+      "label_hist_val_named": {
+        "dog": 19,
+        "elephant": 12,
+        "giraffe": 18,
+        "guitar": 16,
+        "horse": 21,
+        "house": 33,
+        "person": 48
+      },
+      "domain_hist_train": {
+        "photo": 1503
+      },
+      "domain_frac_train": {
+        "photo": 1.0
+      }
+    },
+    "sketch": {
+      "n_train": 3536,
+      "n_val": 393,
+      "label_hist_train": {
+        "0": 687,
+        "1": 675,
+        "2": 675,
+        "3": 555,
+        "4": 735,
+        "5": 70,
+        "6": 139
+      },
+      "label_hist_train_named": {
+        "dog": 687,
+        "elephant": 675,
+        "giraffe": 675,
+        "guitar": 555,
+        "horse": 735,
+        "house": 70,
+        "person": 139
+      },
+      "label_hist_val": {
+        "0": 85,
+        "1": 65,
+        "2": 78,
+        "3": 53,
+        "4": 81,
+        "5": 10,
+        "6": 21
+      },
+      "label_hist_val_named": {
+        "dog": 85,
+        "elephant": 65,
+        "giraffe": 78,
+        "guitar": 53,
+        "horse": 81,
+        "house": 10,
+        "person": 21
+      },
+      "domain_hist_train": {
+        "sketch": 3536
+      },
+      "domain_frac_train": {
+        "sketch": 1.0
+      }
+    }
+  },
+  "totals": {
+    "n_train": 6882,
+    "n_val": 765,
+    "num_clients": 3
+  }
+}

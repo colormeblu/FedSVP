@@ -1,5 +1,5 @@
-torch==1.9
-torchvision==0.10.0
+torch==1.13
+torchvision==0.14
 numpy==1.22
 tqdm==4.63.0
 scikit_learn==1.2.2

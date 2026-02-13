@@ -1,0 +1,184 @@
+{
+  "summary": {
+    "dataset": "domainnet",
+    "target_domain": "clipart",
+    "algorithm": "fedsvp",
+    "seed": 42,
+    "final_acc": 0.7477525443859685,
+    "final_acc_std": 0.0,
+    "seconds": 11150.482621908188,
+    "hp.dataset.name": "domainnet",
+    "hp.dataset.root": "/home/dengyu/dataset",
+    "hp.dataset.protocol": "loo",
+    "hp.dataset.target_domain": "clipart",
+    "hp.dataset.val_ratio": 0.1,
+    "hp.dataset.image_size": 224,
+    "hp.dataset.transforms": "clip",
+    "hp.algorithm.name": "fedsvp",
+    "hp.algorithm.rounds": 60,
+    "hp.algorithm.local_epochs": 1,
+    "hp.algorithm.batch_size": 32,
+    "hp.algorithm.lr": 0.0001,
+    "hp.algorithm.wd": 0.0001,
+    "hp.algorithm.lambda_consistency": 0.5,
+    "hp.algorithm.use_gca": true,
+    "hp.algorithm.lambda_contrastive": 0.1,
+    "hp.algorithm.contrastive_tau": 0.15,
+    "hp.algorithm.prototype_max_batches": 192,
+    "hp.algorithm.tau": 0.2,
+    "hp.algorithm.prompt_mode": "msvp",
+    "hp.algorithm.server_agg": "sdwa",
+    "hp.algorithm.class_template": "a photo of a {}",
+    "hp.algorithm.anchor_templates": [
+      "a photo of a {}",
+      "a sketch of a {}",
+      "a painting of a {}",
+      "an infograph of a {}"
+    ],
+    "hp.algorithm.public.root": "/home/dengyu/dataset/ProxyData/images",
+    "hp.algorithm.public.num_public": 1000,
+    "hp.algorithm.public.batch_size": 8,
+    "hp.algorithm.log_every": 1,
+    "hp.algorithm.tqdm": true
+  },
+  "raw": {
+    "history": {
+      "round": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "test_acc": [
+        0.7224008355005836,
+        0.7342985276350009,
+        0.739458972416194,
+        0.7429607028034321,
+        0.7456228370159523,
+        0.7477525443859685
+      ],
+      "test_loss": [
+        1.2047092791400238,
+        1.1374356523368243,
+        1.1038254698066716,
+        1.084775682673088,
+        1.0714130071004688,
+        1.0618581646560972
+      ],
+      "semantic_scores": [
+        [
+          0.27777551507949827,
+          0.2782663261890411,
+          0.2740086259841919,
+          0.27985665798187254,
+          0.2771276931762695
+        ],
+        [
+          0.2797239298820496,
+          0.2791269891262054,
+          0.2743602731227875,
+          0.2796884286403656,
+          0.278133682012558
+        ],
+        [
+          0.2827589695453644,
+          0.2812085726261139,
+          0.2766797239780426,
+          0.2802398495674133,
+          0.2798627541065216
+        ],
+        [
+          0.2839653737545013,
+          0.2818338079452515,
+          0.27811169505119326,
+          0.2803726844787598,
+          0.2805775301456451
+        ],
+        [
+          0.28469135355949404,
+          0.28196541929244995,
+          0.2786415538787842,
+          0.2807136261463165,
+          0.28076474475860597
+        ],
+        [
+          0.28516497659683226,
+          0.2822460997104645,
+          0.27857391476631166,
+          0.28105361461639405,
+          0.2810964810848236
+        ]
+      ],
+      "agg_weights": [
+        [
+          0.20035965740680695,
+          0.2008519470691681,
+          0.19662131369113922,
+          0.20245541632175446,
+          0.19971169531345367
+        ],
+        [
+          0.20151293277740479,
+          0.20091238617897034,
+          0.196180522441864,
+          0.20147714018821716,
+          0.1999170035123825
+        ],
+        [
+          0.20261596143245697,
+          0.20105133950710297,
+          0.19654986262321472,
+          0.20007988810539246,
+          0.19970300793647766
+        ],
+        [
+          0.2030063271522522,
+          0.20085419714450836,
+          0.19715076684951782,
+          0.1993921846151352,
+          0.19959652423858643
+        ],
+        [
+          0.20335401594638824,
+          0.20060114562511444,
+          0.19729486107826233,
+          0.199349507689476,
+          0.19940048456192017
+        ],
+        [
+          0.2035578191280365,
+          0.20060861110687256,
+          0.19695882499217987,
+          0.19941601157188416,
+          0.1994587779045105
+        ]
+      ],
+      "proto_coverage": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "global_proto_valid_classes": [
+        345,
+        345,
+        345,
+        345,
+        345,
+        345
+      ],
+      "client_names": [
+        "infograph",
+        "painting",
+        "quickdraw",
+        "real",
+        "sketch"
+      ]
+    },
+    "final_acc": 0.7477525443859685
+  }
+}

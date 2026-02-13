@@ -4,6 +4,9 @@
     "outdir": "outputs"
   },
   "seed": 42,
+  "parallel_mode": "ddp",
+  "multi_gpu": false,
+  "gpu_ids": [],
   "num_workers": 4,
   "dataset": {
     "name": "office-home",
@@ -22,6 +25,10 @@
     "lr": 0.0001,
     "wd": 0.0001,
     "lambda_consistency": 0.5,
+    "use_gca": true,
+    "lambda_contrastive": 0.15,
+    "contrastive_tau": 0.1,
+    "prototype_max_batches": 128,
     "tau": 0.2,
     "prompt_mode": "msvp",
     "server_agg": "sdwa",

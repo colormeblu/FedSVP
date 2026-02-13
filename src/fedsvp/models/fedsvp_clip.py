@@ -189,6 +189,14 @@ class PromptedOpenCLIPVision(nn.Module):
             feat = F.normalize(feat, dim=-1)
         return feat
 
+    def forward(
+        self,
+        x: torch.Tensor,
+        with_prompt: bool = True,
+        normalize: bool = True,
+    ) -> torch.Tensor:
+        return self.encode_image(x, with_prompt=with_prompt, normalize=normalize)
+
     def _forward_visual(self, x: torch.Tensor, with_prompt: bool = True) -> torch.Tensor:
         v = self.visual
 
