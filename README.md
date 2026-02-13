@@ -1,10 +1,10 @@
 # FedSVP
+基于对比对齐的联邦尺度感知视觉提示学习
+FedSVP(Federated Scale-aware Visual Prompting with Contrastive Alignment) is a runnable Python project for the algorithm described in `毕业论文算法一.docx`:
 
-FedSVP is a runnable Python project for the algorithm described in `毕业论文算法一.docx`:
-
-- **Fed-MSVP (client side)**: multi-scale visual prompts across ViT layers with adaptive gates (`alpha_l`, initialized to 0).
-- **Fed-GCA (training mechanism)**: global-local contrastive alignment with server-maintained class prototypes.
-- **Fed-SDWA (server side)**: semantic-distance weighted aggregation based on proxy-data semantic scores.
+- **Fed-MSVP (Federated Multi-Scale Visual Prompting)**: multi-scale visual prompts across ViT layers with adaptive gates (`alpha_l`, initialized to 0).
+- **Fed-GCA (Global-Local Contrastive Alignment)**: global-local contrastive alignment with server-maintained class prototypes.
+- **Fed-SDWA (Semantic-Distance Weighted Aggregation)**: semantic-distance weighted aggregation based on proxy-data semantic scores.
 
 The project keeps the same scaffold style as `fedcausal_prompt_project`:
 `train.py + configs + src/<package> + tests`.
